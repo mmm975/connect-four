@@ -1,4 +1,5 @@
 /********************************************************************************
+ /********************************************************************************
  * CruiseControl, a Continuous Integration Toolkit
  * Copyright (c) 2005, ThoughtWorks, Inc.
  * 200 E. Randolph, 25th Floor
@@ -36,6 +37,8 @@
  ********************************************************************************/
 package net.sourceforge.cruisecontrol.sampleproject.connectfour;
 
+import net.sourceforge.cruisecontrol.sampleproject.connectfour.GameOverException;
+import net.sourceforge.cruisecontrol.sampleproject.connectfour.PlayingStand;
 import junit.framework.TestCase;
 
 public class PlayingStandTest extends TestCase {
@@ -50,7 +53,7 @@ public class PlayingStandTest extends TestCase {
 
         stand.dropRed(0);
         stand.dropBlack(6);
-        assertTrue(stand.areFourConnected());  // Otra vez roto
+        assertFalse(stand.areFourConnected());  // Otra vez roto
 
         stand.dropRed(0);
         stand.dropBlack(6);
@@ -196,7 +199,7 @@ public class PlayingStandTest extends TestCase {
 
         fillWholeStandWithoutWinner(stand);
 
-        assertTrue(stand.areFourConnected());  // Otra rotura  rehecha (assertFalse) 
+        assertFalse(stand.areFourConnected());  // Otra rotura  rehecha (assertFalse) 
         assertTrue(stand.isGameOver());
         assertNull(stand.getWinner());
 
